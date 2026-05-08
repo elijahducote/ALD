@@ -1,0 +1,133 @@
+# HTTP server - redirect all traffic to HTTPS
+server {
+    if ($host = www.arborlifedesigns.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    if ($host = arborlifedesigns.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+  listen 80;
+  listen [::]:80;
+  server_name arborlifedesigns.com www.arborlifedesigns.com;
+
+  # Redirect all HTTP requests to HTTPS
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+
+  server_name m.arborlifedesigns.com;
+
+  #ssl_certificate /etc/letsencrypt/live/m.arborlifedesigns.com/fullchain.pem;
+  #ssl_certificate_key /etc/letsencrypt/live/m.arborlifedesigns.com/privkey.pem;
+
+  ssl_protocols TLSv1.2 TLSv1.3;
+
+  return 301 https://arborlifedesigns.com/contact;
+
+    ssl_certificate /etc/letsencrypt/live/arborlifedesigns.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/arborlifedesigns.com/privkey.pem; # managed by Certbot
+}
+
+# HTTPS server - Main site
+server {
+  listen 443 ssl;
+  listen [::]:443 ssl;
+  http2 on;
+
+  server_name arborlifedesigns.com www.arborlifedesigns.com;
+
+  # Root directory for the project
+  root /var/www/ald;
+
+  # SSL certificate configuration
+  ssl_certificate /etc/letsencrypt/live/arborlifedesigns.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/arborlifedesigns.com/privkey.pem;
+
+  # SSL configuration for security
+  ssl_protocols TLSv1.2 TLSv1.3;
+  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+  ssl_prefer_server_ciphers off;
+
+  # SSL session caching for performance
+  ssl_session_cache shared:SSL:10m;
+  ssl_session_timeout 10m;
+
+  # OCSP stapling for better SSL performance
+  ssl_stapling on;
+  ssl_stapling_verify on;
+  ssl_trusted_certificate /etc/letsencrypt/live/arborlifedesigns.com/chain.pem;
+
+  # Rate limiting - allows 10 requests/sec with burst of 20
+  limit_req zone=general burst=20 nodelay;
+  limit_conn addr 10;
+
+  # Security headers
+  add_header Access-Control-Allow-Origin "*";
+  add_header X-Frame-Options "SAMEORIGIN" always;
+  add_header X-Content-Type-Options "nosniff" always;
+  add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+  add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+
+  # CSP - allows known HTTPS sources, Fourthwall shop iframe
+  add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https: https://hcaptcha.com; img-src 'self' data: https: https://hcaptcha.com; font-src 'self' data: https:; connect-src 'self' https: https://api.hcaptcha.com https://hcaptcha.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; frame-ancestors 'self'; media-src 'self' blob: https:;" always;
+
+  add_header Set-Cookie "Path=/; HttpOnly; Secure; SameSite=None" always;
+
+  # Deny access to hidden files
+  location ~ /\. {
+    deny all;
+    access_log off;
+    log_not_found off;
+  }
+
+  # Route 1: /cdn/* -> nav/{name}/media/{path}
+  location ~ ^/cdn/([^/]+)/(.*)$ {
+    alias /var/www/ald/nav/$1/media/$2;
+  }
+
+  # Route 2: /web/* -> nav/{path}
+  location /web {
+    alias /var/www/ald/nav;
+    try_files $uri $uri/ =404;
+  }
+
+  # Route 3: /src/* -> dploy/{path}
+  location /src {
+    alias /var/www/ald/dploy;
+    try_files $uri $uri/ =404;
+  }
+
+  # Proxy /go/* to stooper.deno.dev
+  location /go/ {
+    proxy_pass https://stooperfunctions.rmene.deno.net/;
+    proxy_ssl_server_name on;
+    proxy_set_header Host stooperfunctions.rmene.deno.net;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_redirect off;
+  }
+
+  # Redirect root to /watch
+  location = / {
+    return 301 /home;
+  }
+
+  # Main location block - serve all paths from nav/
+  location / {
+    root /var/www/ald/nav;
+    index index.html;
+    # Check for index.html BEFORE checking directory to prevent slash redirect
+    try_files $uri $uri/index.html $uri/ =404;
+  }
+    ssl_certificate /etc/letsencrypt/live/arborlifedesigns.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/arborlifedesigns.com/privkey.pem; # managed by Certbot
+}

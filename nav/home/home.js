@@ -1,6 +1,6 @@
 import {htm} from "../../bits/utility.js";
 
-const SERVICES = ["installation", "tree care", "illumination", "hardscapes"];
+const SERVICES = ["consultations","inspections","landscape services","tree services";
 
 const MISSION_PARAGRAPHS = [
   "“Our mission is to create enduring and sustainable landscapes that enhance the environment, maximize resources, and inspire people.",
