@@ -1,0 +1,59 @@
+.mission-section {
+  padding: 4em 2em 1em;
+  text-align: center;
+}
+
+.mission-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 2.5em;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  background: var(--gradient-mission);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5em;
+}
+
+.mission-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5em;
+  align-items: center;
+  padding: 2em 3em 4em;
+}
+
+.mission-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-img);
+  box-shadow: var(--shadow-img);
+}
+
+.mission-quote {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.85;
+  color: var(--fg);
+  text-align: left;
+  border: 0.0625em solid var(--hairline);
+  border-radius: 0.5em;
+  padding: 2.5em 2em;
+  background: var(--surface);
+  box-shadow: inset 0 0.0625em 0 hsla(45, 30%, 90%, 0.03);
+}
+
+.mission-quote p + p { margin-top: 1em; }
+
+@media (max-width: 56.25em) {
+  .mission-section { padding: 2.5em 1em 0.5em; }
+  .mission-title { font-size: 2em; }
+  .mission-row {
+    grid-template-columns: 1fr;
+    padding: 1.5em 1.5em 2.5em;
+    gap: 1.5em;
+  }
+  .mission-quote { padding: 1.75em 1.5em; font-size: 1em; }
+}

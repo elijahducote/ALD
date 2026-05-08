@@ -1,0 +1,15 @@
+.stripe-row #payment-element {
+  background: var(--bg);
+  border: 0.0625em solid var(--hairline);
+  border-radius: var(--radius-input);
+  padding: 0.75em;
+  min-height: 8em;
+  transition: border-color var(--speed);
+}
+
+.stripe-row #payment-element:focus-within { border-color: var(--olive); }
+
+.stripe-row .StripeElement {
+  background: transparent;
+  color: var(--fg);
+}

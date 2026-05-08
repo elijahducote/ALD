@@ -1,0 +1,27 @@
+.nav-social {
+  display: flex;
+  gap: 0.9em;
+  align-items: center;
+  padding-left: 1em;
+  border-left: 0.0625em solid var(--hairline);
+  margin-left: 0.5em;
+}
+
+.nav-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-social img {
+  width: 1.125em;
+  cursor: pointer;
+  opacity: 0.78;
+  filter: brightness(0) invert(1);
+  transition: opacity var(--speed), transform var(--speed);
+}
+
+.nav-social a:hover img {
+  opacity: 1;
+  transform: translateY(-0.0625em);
+}

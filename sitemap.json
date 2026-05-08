@@ -1,0 +1,61 @@
+{
+  "name": "Arbor Life Designs",
+  "siteIndex": [
+    {
+      "name": "home",
+      "meta": {
+        "metatags": [
+          "viewport", "width=device-width,initial-scale=1.0",
+          "description", "Arbor Life Designs — Houston-area landscape, tree care, illumination, and hardscapes."
+        ],
+        "pageName": null,
+        "encoding": "UTF-8",
+        "resources": [
+          "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap",
+          "/src/shared/index.css",
+          "/src/home/main.css",
+          "/src/shared/index.js"
+        ]
+      }
+    },
+    {
+      "name": "contact",
+      "meta": {
+        "metatags": [
+          "viewport", "width=device-width,initial-scale=1.0",
+          "description", "Get in touch with Arbor Life Designs about your landscape project."
+        ],
+        "pageName": "Contact",
+        "encoding": "UTF-8",
+        "resources": [
+          "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap",
+          "/src/shared/index.css",
+          "/src/contact/main.css",
+          "/src/shared/index.js",
+          "/src/contact/index.js",
+          { "src": "https://cdn.jsdelivr.net/npm/vanilla-hcaptcha", "async": true, "defer": true }
+        ]
+      }
+    },
+    {
+      "name": "payment",
+      "meta": {
+        "metatags": [
+          "viewport", "width=device-width,initial-scale=1.0",
+          "description", "Pay Arbor Life Designs securely online."
+        ],
+        "pageName": "Payment",
+        "encoding": "UTF-8",
+        "resources": [
+          "https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap",
+          "/src/shared/index.css",
+          "/src/payment/main.css",
+          "/src/shared/index.js",
+          "/src/payment/index.js",
+          { "src": "https://js.stripe.com/v3/", "async": true },
+          { "src": "https://cdn.jsdelivr.net/npm/vanilla-hcaptcha", "async": true, "defer": true }
+        ]
+      }
+    }
+  ]
+}

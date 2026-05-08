@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/web/typo/BrisaSans-Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans Condensed";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/web/typo/BrisaSansCondensed-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/web/typo/BrisaSansCondensed-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/web/typo/BrisaSansCondensed-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Brisa Sans Condensed";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("/web/typo/BrisaSansCondensed-Black.ttf") format("truetype");
+}

@@ -1,0 +1,168 @@
+.nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  padding: 1em 1em 0;
+  pointer-events: none;
+  transition: transform var(--speed) ease, opacity var(--speed) ease;
+}
+
+.nav-wrap > * { pointer-events: auto; }
+
+.nav-wrap.is-hidden {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.wrapper.topnav {
+  width: 100%;
+  max-width: 80em;
+  background: var(--nav-bg);
+  border: 0.0625em solid var(--hairline);
+  border-radius: var(--radius-nav);
+  box-shadow: var(--shadow-nav);
+  backdrop-filter: saturate(180%) blur(1.75em);
+  -webkit-backdrop-filter: saturate(180%) blur(1.75em);
+  display: flex;
+  align-items: center;
+  padding: 0.6em 1.5em;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  gap: 1.5em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  flex: 1;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  font-size: 1em;
+  color: var(--fg);
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color var(--speed);
+}
+
+.nav-link:hover { color: var(--olive-bright); }
+
+.nav-link img {
+  width: 1.375em;
+  filter: brightness(0) invert(1) opacity(0.95);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 0.75em;
+  align-items: center;
+}
+
+.nav-burger {
+  display: none;
+  width: 1.75em;
+  height: 1.75em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.375em;
+  cursor: pointer;
+  color: var(--fg);
+}
+
+.nav-burger:hover { color: var(--olive-bright); }
+
+.nav-burger svg {
+  width: 1.5em;
+  height: 1.5em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.125em;
+}
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: var(--bg);
+  display: none;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.drawer.is-open { display: flex; }
+
+.drawer-head {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 2em;
+}
+
+.drawer-close {
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: 0.0625em solid var(--hairline);
+  border-radius: 0.5em;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.drawer-close svg {
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  stroke-width: 0.1875em;
+  fill: none;
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  flex: 1;
+}
+
+.drawer-links a, .drawer-links button {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--fg);
+  text-align: left;
+  padding: 0.5em 0;
+  border-bottom: 0.0625em solid var(--hairline);
+  background: none;
+  cursor: pointer;
+}
+
+.drawer-social {
+  display: flex;
+  gap: 1em;
+  padding-top: 1.5em;
+  border-top: 0.0625em solid var(--hairline);
+}
+
+.drawer-social img {
+  width: 1.5em;
+  filter: brightness(0) invert(1);
+  opacity: 0.78;
+}
+
+@media (max-width: 56.25em) {
+  .wrapper.topnav { gap: 0.75em; padding: 0.5em 1em; }
+  .nav-links .nav-link:not(:first-child) { display: none; }
+  .nav-social { display: none; }
+  .nav-actions .pill-btn:not(:last-child) { display: none; }
+  .nav-burger { display: inline-flex; }
+}
