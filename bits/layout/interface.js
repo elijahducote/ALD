@@ -36,8 +36,7 @@ function buildNav(tags, currentPage) {
     "data-link": "payment"
   });
 
-  const atSignIcon = htm(tags, undefined, "img", { src: `${ASSETS}/at-sign.svg`, alt: "" });
-  const contactBtn = htm(tags, [atSignIcon, htm(tags, "Contact", "span")], "button", {
+  const contactBtn = htm(tags, htm(tags, "Contact", "span"), "button", {
     class: "pill-btn",
     type: "button",
     "data-link": "contact"
