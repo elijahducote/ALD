@@ -45,7 +45,6 @@
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.375em;
   font-size: 1em;
   color: var(--fg);
   cursor: pointer;
