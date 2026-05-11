@@ -62,7 +62,7 @@ async function init() {
     return;
   }
 
-  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+  const stripe = Stripe(STRIPE_PUBLISHABLE_KEY,{apiVersion:"2024-06-20"});
 
   const elements = stripe.elements({
     mode: "payment",
