@@ -59,7 +59,7 @@ async function init() {
     return;
   }
 
-  window.Stripe = Stripe("pk_live_51PVFAM07xQtIlHl5nneheqyHshNmnrBOzRIgxXQs6GYp7cmtOWsgQnRlQYwUFez0teYb8OYUlIKi91XLMvEm4gts00iISFGmfg",{apiVersion:"2024-06-20"});
+  window.stripe = Stripe("pk_live_51PVFAM07xQtIlHl5nneheqyHshNmnrBOzRIgxXQs6GYp7cmtOWsgQnRlQYwUFez0teYb8OYUlIKi91XLMvEm4gts00iISFGmfg",{apiVersion:"2024-06-20"});
 
   const elements = stripe.elements({
     mode: "payment",
