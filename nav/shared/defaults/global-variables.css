@@ -18,8 +18,27 @@
 
   --nav-bg:       hsla(45, 8%, 12%, 0.78);
 
-  --gradient-button:  linear-gradient(258deg, #6cd778 0%, #2e9670 100%);
-  --gradient-mission: linear-gradient(98deg, #d8c569 0%, #6cc78a 50%, #5fa896 100%);
+  --gradient-button:  linear-gradient(
+    98deg,
+    #d4c063 0%,
+    #c4ac5a 20%,
+    #b39955 38%,
+    #a18952 52%,
+    #8f7a4f 68%,
+    #7f6b48 82%,
+    #6f5d42 100%
+  );
+  --gradient-mission: linear-gradient(
+    98deg,
+    #d8c569 0%,
+    #d6c06a 15%,
+    #d0b76f 30%,
+    #c8af75 45%,
+    #bfa66f 60%,
+    #b89e6a 75%,
+    #b09666 88%,
+    #a98f5f 100%
+  );
   --gradient-footer:  linear-gradient(325deg, hsl(194,28%,22%) 0%, hsl(134,30%,25%) 55%, hsl(73,32%,28%) 100%);
 
   --shadow-nav:
@@ -41,8 +60,7 @@
   --shadow-img:
     0 .75em 2em -.375em rgba(0,0,0,.7),
     0 .25em .625em rgba(0,0,0,.4);
-  --text-shadow-pill: 0 .0625em .125em rgba(0,0,0,.55), 0 .125em .375em rgba(0,0,0,.35);
-  --text-shadow-footer: 0 .15em .15em rgba(0,0,0,.65), 0 .25em .5em rgba(0,0,0,.3);
+  --text-shadow-footer: 0 .15em .15em rgba(0,0,0,.75), 0 .25em .5em rgba(0,0,0,.375);
 
   --radius-pill:  1.875em;
   --radius-card:  1.25em;

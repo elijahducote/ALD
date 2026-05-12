@@ -91,8 +91,10 @@ hr {
 ::-webkit-scrollbar-thumb:hover { background: var(--hairline); }
 
 .pill-btn {
-  color: #fff;
+  text-shadow: 0 .0625em .125em rgba(0,0,0,1), 0 .125em .375em rgba(0,0,0,1);
+  color: #FFF;
   display: inline-flex;
+  font-weight: 800 !important;
   align-items: center;
   gap: 0.5em;
   background: var(--gradient-button);
@@ -104,7 +106,6 @@ hr {
   font-size: 0.78em;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  text-shadow: var(--text-shadow-pill);
   box-shadow: var(--shadow-pill);
   cursor: pointer;
   transition: transform var(--speed) ease-in, box-shadow var(--speed);

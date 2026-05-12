@@ -30,13 +30,13 @@ function buildNav(tags, currentPage) {
 
   const navLinks = htm(tags, [homeLink, servicesLink], "div", { class: "nav-links" });
 
-  const paymentBtn = htm(tags, "Payments", "button", {
+  const paymentBtn = htm(tags, htm(tags,"Payments"), "button", {
     class: "pill-btn",
     type: "button",
     "data-link": "payment"
   });
 
-  const contactBtn = htm(tags, htm(tags, "Contact", "span"), "button", {
+  const contactBtn = htm(tags, htm(tags,"Contact"), "button", {
     class: "pill-btn",
     type: "button",
     "data-link": "contact"

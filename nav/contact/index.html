@@ -29,7 +29,6 @@
        <div class="nav-actions">
         <button class="pill-btn" type="button" data-link="payment">Payments</button>
         <button class="pill-btn" type="button" data-link="contact">
-         <img src="/web/icons/at-sign.svg" alt="" />
          <span>Contact</span>
         </button>
         <div class="nav-social">
@@ -93,7 +92,7 @@
          <h1>Interested?</h1>
          <p class="intro">We accept your business here.</p>
          <p class="small">We do not store any information, and only provide it for the contractor.</p>
-         <form id="contact-form" action="/m" method="POST" enctype="application/x-www-form-urlencoded" novalidate="true">
+         <form id="contact-form" action="/go/send-mail" method="POST" enctype="multipart/form-data" novalidate="true">
           <div class="form-row">
            <label for="name">Name</label>
            <input id="name" name="name" type="text" placeholder="Ex: Ashley, Evan, Herman, Louise..." required="true" autocomplete="name" autofocus="true" />
@@ -111,10 +110,11 @@
            <input id="phone" name="phone" type="tel" placeholder="Ex: +1 (000)-000-0000" required="true" minlength="10" autocomplete="tel" />
           </div>
           <div class="form-row">
-           <label for="comments">Comments</label>
-           <textarea id="comments" name="comments" placeholder="Ex: I request your services to install Christmas lights..." required="true" minlength="15" maxlength="3000" rows="5"></textarea>
+           <label for="mail">Comments</label>
+           <textarea id="mail" name="mail" placeholder="Ex: I request your services to install Christmas lights..." required="true" minlength="15" maxlength="3000" rows="5"></textarea>
           </div>
           <h-captcha class="h-captcha" site-key="a3524c06-9e6e-4856-a31b-98e565f80c78" theme="dark" size="compact" auto-render="true"></h-captcha>
+          <input type="hidden" name="token" id="captcha-token" />
           <div class="form-subscribe">
            <input type="checkbox" id="subscribe" name="subscribe" checked="true" />
            <label for="subscribe" class="subscribe-label">Enroll for updates</label>
