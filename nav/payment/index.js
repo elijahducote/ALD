@@ -1,8 +1,5 @@
 /* Stripe payment page browser logic. Ported from OG_project/payment.js */
 
-const STRIPE_PUBLISHABLE_KEY =
-  (typeof window !== "undefined" && window.__STRIPE_PK__) ||
-  "pk_live_51PVFAM07xQtIlHl5nneheqyHshNmnrBOzRIgxXQs6GYp7cmtOWsgQnRlQYwUFez0teYb8OYUlIKi91XLMvEm4gts00iISFGmfg";
 
 function formatNumber(n) {
   return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -62,7 +59,7 @@ async function init() {
     return;
   }
 
-  window.stripe = Stripe(STRIPE_PUBLISHABLE_KEY,{apiVersion:"2024-06-20"});
+  window.Stripe = Stripe("pk_live_51PVFAM07xQtIlHl5nneheqyHshNmnrBOzRIgxXQs6GYp7cmtOWsgQnRlQYwUFez0teYb8OYUlIKi91XLMvEm4gts00iISFGmfg",{apiVersion:"2024-06-20"});
 
   const elements = stripe.elements({
     mode: "payment",
