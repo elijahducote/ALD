@@ -51,8 +51,8 @@
           "/src/shared/index.css",
           "/src/payment/main.css",
           "/src/shared/index.js",
-          "/src/payment/index.js",
-          { "src": "https://js.stripe.com/v3/", "async": true },
+          { "src": "https://js.stripe.com/v3/", "defer": true },
+          { "src": "/src/payment/index.js", "defer": true },
           { "src": "https://cdn.jsdelivr.net/npm/vanilla-hcaptcha", "async": true, "defer": true }
         ]
       }
