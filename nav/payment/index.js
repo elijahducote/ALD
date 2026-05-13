@@ -124,7 +124,9 @@ async function init() {
 
     let confirmationToken;
     try {
-      const ct = await stripe.createConfirmationToken({ elements });
+      const ct = await stripe.createConfirmationToken({ elements, params: {
+         return_url: "https://arborlifedesigns.com/payment", // Passed here
+       }});
       if (ct.error) {
         status.textContent = ct.error.message || "Could not tokenize payment details.";
         submit.disabled = false;
