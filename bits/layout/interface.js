@@ -6,8 +6,7 @@ const ASSETS = "/web/icons";
 const SOCIAL = [
   { id: "instagram", href: "https://www.instagram.com/arborlifedesigns/", label: "Instagram", src: `${ASSETS}/insta.svg` },
   { id: "x",         href: "https://x.com/arborlife",                   label: "X",         src: `${ASSETS}/x.svg` },
-  { id: "facebook",  href: "https://www.facebook.com/",                 label: "Facebook",  src: `${ASSETS}/facebook.svg` },
-  { id: "youtube",   href: "https://yt.be/",                            label: "YouTube",   src: `${ASSETS}/youtube.svg` }
+  { id: "facebook",  href: "https://www.facebook.com/arborlife.designs",  label: "Facebook",  src: `${ASSETS}/facebook.svg` }
 ];
 
 function buildNav(tags, currentPage) {
